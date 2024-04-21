@@ -1,23 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import CreateCacheForm from './components/CreateCacheForm';
+import GetCache from './components/GetCache';
+import DeleteCacheButton from './components/DeleteCacheButton';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>LRU Cache Manager</h1>
+      <div className="section">
+        <CreateCacheForm />
+      </div>
+      <hr />
+      <div className="section">
+        <GetCache />
+      </div>
+      <hr />
+      <div className="section">
+        <DeleteCacheButton />
+      </div>
     </div>
   );
 }
