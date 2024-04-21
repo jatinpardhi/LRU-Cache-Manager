@@ -14,12 +14,22 @@ export const createCache = async (value, expiration) => {
   }
 };
 
-export const getCache = async (id) => {
+export const getCacheState = async () => {
   try {
-    const response = await axios.get(`${baseURL}/cache/${id}`);
+    const response = await axios.get(`${baseURL}/cache/state`);
     return response.data;
   } catch (error) {
-    console.error('Error getting cache:', error);
+    console.error('Error fetching cache state:', error);
+    throw error;
+  }
+};
+
+export const getCache = async (key) => {
+  try {
+    const response = await axios.get(`${baseURL}/cache/${key}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching cache:', error);
     throw error;
   }
 };
